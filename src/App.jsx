@@ -1,10 +1,24 @@
+import { puppyList } from "./data.js";
+import { useState } from "react";
+
 function App() {
-  const [count, setCount] = useState(0);
+  const [puppies, setPuppies] = useState(puppyList);
+  const [featPupId, setFeatPupId] = useState(null);
+
+  function handleClick() {
+    // some logic here
+  }
 
   return (
-    <>
-      <div></div>
-    </>
+    <div className="App">
+      {puppies.map((puppy) => {
+        return (
+          <p onClick={handleClick} key={puppy.id}>
+            {puppy.name}
+          </p>
+        );
+      })}
+    </div>
   );
 }
 
